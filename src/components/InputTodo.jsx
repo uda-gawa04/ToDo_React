@@ -11,12 +11,19 @@ const style = {
 
 export const InputTodo = (props) => {
   // 分割代入で、propsの中に入れて渡されたものを使いやすくする
-  const { todoText, onChange, onClick } = props;
+  const { todoText, onChange, onClick, disabled } = props;
 
   return (
     <div style={style}>
-      <input placeholder="MY TODO" value={todoText} onChange={onChange} />
-      <button onClick={onClick}>add</button>
+      <input
+        disabled={disabled}
+        placeholder="MY TODO"
+        value={todoText}
+        onChange={onChange}
+      />
+      <button disabled={disabled} onClick={onClick}>
+        add
+      </button>
     </div>
   );
 };
