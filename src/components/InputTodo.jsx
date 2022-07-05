@@ -3,10 +3,10 @@ import React from "react";
 const style = {
   backgroundColor: "#799959",
   width: "400px",
-  height: "30px",
+  minHeight: "30px",
   padding: "8px",
   margin: "8px",
-  bordeRadius: "8px"
+  borderRadius: "8px"
 };
 
 export const InputTodo = (props) => {
@@ -24,6 +24,15 @@ export const InputTodo = (props) => {
       <button disabled={disabled} onClick={onClick}>
         add
       </button>
+      <br />
+      {/* // 配列の長さが５を超えたら、<p>を表示させる */}
+      {disabled}
+      <p
+        hidden={!disabled}
+        style={{ color: "#663f22", textAlign: "center", fontWeight: "bold" }}
+      >
+        登録できるtodoは５個までです。頑張ってください。
+      </p>
     </div>
   );
 };

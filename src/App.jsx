@@ -68,12 +68,6 @@ export const App = () => {
         onClick={onClickAdd}
         disabled={incompTodos.length >= 5}
       />
-      {/* 配列の長さが５を超えたら、<p>を表示させる */}
-      {incompTodos.length >= 5 && (
-        <p style={{ color: "#663f22" }}>
-          登録できるtodoは５個までです。頑張ってください。
-        </p>
-      )}
       <IncompTodo
         todos={incompTodos}
         onClickComp={onClickComp}
