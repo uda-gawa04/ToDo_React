@@ -1,0 +1,70 @@
+body {
+  font-family: sans-serif;
+}
+
+input {
+  border-radius: 16px;
+  border: none;
+  padding: 6px 16px;
+  outline: none;
+}
+
+button {
+  border-radius: 16px;
+  border: none;
+  padding: 4px 16px;
+  margin: 0px 3px;
+}
+
+/* カーソルを合わせたときの動きを指定 */
+button:hover {
+  background-color: #28331e;
+  color: #fff;
+  cursor: pointer;
+}
+
+/* liタグで囲われた範囲に対する装飾 */
+li {
+  margin-right: 8px;
+}
+
+/* 各クラスに対する装飾　.（ドット）がclassの意味 */
+.input-area {
+  background-color: #799959;
+  width: 400px;
+  height: 30px;
+  padding: 8px;
+  margin: 8px;
+  border-radius: 8px;
+}
+
+.incomp-area {
+  background-color: #c9ff93;
+  width: 400px;
+  min-height: 200px;
+  padding: 8px;
+  margin: 8px;
+  border-radius: 8px;
+}
+
+.comp-area {
+  background-color: #e6ffcc;
+  width: 400px;
+  min-height: 200px;
+  padding: 8px;
+  margin: 8px;
+  border-radius: 8px;
+}
+
+.title {
+  text-align: center;
+  margin-top: 0;
+  font-weight: bold;
+  color: #51663b;
+}
+
+.list-row {
+  display: flex;
+  align-items: center;
+  padding-bottom: 6px;
+}
