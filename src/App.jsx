@@ -1,5 +1,8 @@
 import React, { useState } from "react";
 import "./styles.css";
+import { InputTodo } from "./components/InputTodo";
+import { IncompTodo } from "./components/IncompTodo";
+import { CompTodo } from "./components/CompTodo";
 
 export const App = () => {
   // 入力した値のステート化
@@ -58,44 +61,18 @@ export const App = () => {
 
   return (
     <>
-      <div className="input-area">
-        <input
-          placeholder="MY TODO"
-          value={todoText}
-          onChange={onChangeTodoText}
-        />
-        <button onClick={onClickAdd}>add</button>
-      </div>
-      <div className="incomp-area">
-        <p className="title">incomplete</p>
-        <ul>
-          {/* todoにはその内容、indexには何行目のボタンかの情報がそれぞれ入っている */}
-          {incompTodos.map((todo, index) => {
-            return (
-              // key：レンダリングされている場合、何個目のやつなのかをしっかり把握するため
-              <div key={todo} className="list-row">
-                <li>{todo}</li>
-                <button onClick={() => onClickComp(index)}>complete</button>
-                <button onClick={() => onClickDelete(index)}>delete</button>
-              </div>
-            );
-          })}
-        </ul>
-      </div>
-      <div className="comp-area">
-        <p className="title">complete</p>
-        <ul>
-          {compTodos.map((todo, index) => {
-            return (
-              <div key={todo} className="list-row">
-                <li>{todo}</li>
-                <button onClick={() => onClickBack(index)}>return</button>
-                <button onClick={() => onClickDelete2(index)}>delete</button>
-              </div>
-            );
-          })}
-        </ul>
-      </div>
+      <InputTodo
+        // propsとして渡すものを記述
+        todoText={todoText}
+        onChange={onChangeTodoText}
+        onClick={onClickAdd}
+      />
+      <IncompTodo
+        todos={incompTodos}
+        onClickComp={onClickComp}
+        onClickDelete={onClickDelete}
+      />
+      <CompTodo todos={compTodos} back={onClickBack} delete2={onClickDelete2} />
     </>
   );
 };
