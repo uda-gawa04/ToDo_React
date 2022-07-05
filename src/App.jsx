@@ -19,11 +19,17 @@ export const App = () => {
     setIncompTodos(newTodos);
     setTodoText("");
   };
+
+  const onClickDelete = (index) => {
+    const newTodos = [...incompTodos];
+    newTodos.splice(index, 1);
+    setIncompTodos(newTodos);
+  };
   return (
     <>
       <div className="input-area">
         <input
-          placeholder="Enter TODO"
+          placeholder="MY TODO"
           value={todoText}
           onChange={onChangeTodoText}
         />
@@ -32,13 +38,14 @@ export const App = () => {
       <div className="incomp-area">
         <p className="title">incomplete</p>
         <ul>
-          {incompTodos.map((todo) => {
+          {/* todoにはその内容、indexには何行目のボタンかの情報がそれぞれ入っている */}
+          {incompTodos.map((todo, index) => {
             return (
               // key：レンダリングされている場合、何個目のやつなのかをしっかり把握するため
               <div key={todo} className="list-row">
                 <li>{todo}</li>
                 <button>complete</button>
-                <button>delete</button>
+                <button onClick={() => onClickDelete(index)}>delete</button>
               </div>
             );
           })}

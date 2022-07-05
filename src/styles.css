@@ -18,7 +18,8 @@ button {
 
 /* カーソルを合わせたときの動きを指定 */
 button:hover {
-  background-color: #28331e;
+  background-color: #663f22;
+  /* 28331e  8c572e*/
   color: #fff;
   cursor: pointer;
 }
