@@ -39,13 +39,20 @@ export const App = () => {
 
   // 完了ボタンの設定
   const onClickComp = (index) => {
+    // 未完了から削除
     const newIncompTodos = [...incompTodos];
     newIncompTodos.splice(index, 1);
+    // 完了に追加
+    const newCompTodos = [...compTodos, incompTodos[index]];
 
-    const newConpTodos = [...compTodos, incompTodos[index]];
+    // ５個を超えたら自動で消える機能を付けたい
+    if (newCompTodos.length >= 5) {
+      newCompTodos.splice(0, 1);
+      // setcompTodos(newTodos);
+    }
 
     setIncompTodos(newIncompTodos);
-    setCompTodos(newConpTodos);
+    setCompTodos(newCompTodos);
   };
 
   // 戻るボタンの設定
